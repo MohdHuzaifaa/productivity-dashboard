@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Productivity Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <h1 class="logo">Productivity Dashboard</h1>
+
+            <nav>
+
+                <button id="navTasks" class="nav-btn active">
+                    Tasks
+                </button>
+
+                <button id="navPomodoro" class="nav-btn">
+                    Pomodoro
+                </button>
+
+            </nav>
+
+            <button id="themeToggle">🌙</button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= TASK DASHBOARD ================= -->
+
+    <main id="taskView" class="dashboard">
+
+        <!-- LEFT COLUMN -->
+
+        <div class="left-column">
+
+            <!-- QUOTE CARD -->
+
+            <section class="quote-card">
+
+                <h2 class="section-title">Daily Motivation</h2>
+
+                <p id="quoteText">Loading quote...</p>
+
+                <button id="refreshQuote">New Quote</button>
+
+            </section>
+
+
+            <!-- ADD TASK -->
+
+            <section class="task-input-card">
+
+                <h2 class="section-title">Add New Task</h2>
+
+                <div class="task-input-grid">
+
+                    <input type="text" id="taskInput" placeholder="Enter your task..." />
+
+                    <select id="category">
+
+                        <option value="Work">Work</option>
+                        <option value="Study">Study</option>
+                        <option value="Personal">Personal</option>
+
+                    </select>
+
+                    <select id="priority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+
+                    <input type="date" id="deadlineDate">
+
+                    <input type="time" id="deadlineTime">
+
+                    <button id="addTaskBtn">Add Task</button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- RIGHT COLUMN -->
+
+        <div class="right-column">
+
+
+            <!-- FILTER BAR -->
+
+            <section class="filter-bar">
+
+                <button class="filter-btn active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter-btn" data-filter="pending">
+                    Pending
+                </button>
+
+                <button class="filter-btn" data-filter="completed">
+                    Completed
+                </button>
+
+            </section>
+
+
+            <!-- TASK LIST -->
+
+            <section class="task-section">
+
+                <ul id="taskList"></ul>
+
+                <div id="emptyState" class="empty-state">
+
+                    <p>No tasks yet</p>
+
+                    <p>Add your first task 🚀</p>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROGRESS -->
+
+            <section class="progress-section">
+
+                <h2 class="section-title">Progress</h2>
+
+                <p id="taskStats">0 / 0 tasks completed</p>
+
+                <div class="progress-bar">
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= POMODORO SECTION ================= -->
+
+    <section id="pomodoroView" class="pomodoro hidden">
+
+        <div class="pomodoro-container">
+
+            <h3 class="pomo-task-title">Current Task</h3>
+
+            <input type="text" id="pomoTaskInput" placeholder="What are you working on?" class="pomo-task-input" />
+
+            <div class="pomodoro-tabs">
+
+                <button class="pomo-tab active" data-mode="focus">
+                    Focus
+                </button>
+
+                <button class="pomo-tab" data-mode="short">
+                    Short Break
+                </button>
+
+                <button class="pomo-tab" data-mode="long">
+                    Long Break
+                </button>
+
+            </div>
+
+            <h1 id="pomodoroTimer">25:00</h1>
+
+            <div class="pomodoro-controls">
+
+                <button id="startPomodoro">Start</button>
+
+                <button id="pausePomodoro">Pause</button>
+
+                <button id="resetPomodoro">Reset</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    </main>
+
+
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="js/storage.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/deadline.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/quote.js"></script>
+    <script src="js/taskManager.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pomodoro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+
+</html>

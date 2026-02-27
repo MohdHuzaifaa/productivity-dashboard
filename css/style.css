@@ -1,0 +1,476 @@
+/* ================= RESET ================= */
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Inter',sans-serif;
+min-height:100vh;
+color:#e2e8f0;
+
+background:
+radial-gradient(circle at 20% 20%,#1e293b 0%,transparent 40%),
+radial-gradient(circle at 80% 80%,#0f172a 0%,transparent 40%),
+linear-gradient(135deg,#020617,#020617);
+
+background-attachment:fixed;
+}
+
+/* ================= NAVBAR ================= */
+
+.header{
+width:100%;
+padding:18px 60px;
+background:rgba(2,6,23,0.8);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.header-content{
+display:flex;
+align-items:center;
+justify-content:space-between;
+max-width:1400px;
+margin:auto;
+}
+
+.logo{font-size:22px;font-weight:600;color:white;}
+
+nav{
+display:flex;
+gap:30px;
+margin-left:auto;
+margin-right:30px;
+}
+
+.nav-btn{
+background:none;
+border:none;
+color:#94a3b8;
+font-size:15px;
+cursor:pointer;
+transition:.2s;
+}
+
+.nav-btn:hover{color:white;}
+
+.nav-btn.active{
+color:white;
+position:relative;
+}
+
+.nav-btn.active::after{
+content:"";
+position:absolute;
+bottom:-6px;
+left:0;
+width:100%;
+height:2px;
+background:#7c3aed;
+border-radius:2px;
+}
+
+#themeToggle{
+background:#7c3aed;
+color:white;
+border:none;
+padding:8px 10px;
+border-radius:8px;
+cursor:pointer;
+transition:.2s;
+}
+
+#themeToggle:hover{background:#6d28d9;}
+
+/* ================= LAYOUT ================= */
+
+.dashboard{
+display:grid;
+grid-template-columns:1fr 1.3fr;
+gap:40px;
+max-width:1300px;
+margin:60px auto;
+padding:0 40px;
+}
+
+.left-column{display:flex;flex-direction:column;gap:32px;}
+.right-column{display:flex;flex-direction:column;gap:28px;height:100%;}
+.task-section{flex-grow:1;display:flex;flex-direction:column;}
+
+/* ================= CARDS ================= */
+
+.quote-card,
+.task-input-card,
+.task-section,
+.progress-section{
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:18px;
+padding:26px;
+}
+
+/* ================= TITLES ================= */
+
+.section-title{
+font-size:18px;
+margin-bottom:15px;
+font-weight:500;
+color:white;
+}
+
+/* ================= QUOTE ================= */
+
+#quoteText{color:#94a3b8;margin-bottom:15px;}
+
+#refreshQuote{
+background:#7c3aed;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:8px;
+}
+
+/* ================= ADD TASK ================= */
+
+.task-input-grid{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.task-input-grid input,
+.task-input-grid select{
+padding:12px;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.06);
+color:#e2e8f0;
+outline:none;
+appearance:none;
+transition:.2s;
+}
+
+.task-input-grid input:focus,
+.task-input-grid select:focus{
+border-color:#7c3aed;
+box-shadow:0 0 0 2px rgba(124,58,237,.25);
+}
+
+.task-input-grid select{
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6'/%3E%3C/svg%3E");
+background-repeat:no-repeat;
+background-position:right 12px center;
+background-size:12px;
+padding-right:35px;
+}
+
+#addTaskBtn{
+background:#7c3aed;
+color:white;
+border:none;
+padding:10px;
+border-radius:10px;
+margin-top:5px;
+}
+
+#addTaskBtn:hover{background:#6d28d9;}
+
+/* ================= FILTER ================= */
+
+.filter-bar{
+display:flex;
+gap:10px;
+align-items:center;
+margin-bottom:16px;
+padding-left:4px;
+}
+
+.filter-btn{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:6px 14px;
+border-radius:20px;
+color:#cbd5e1;
+font-size:13px;
+cursor:pointer;
+transition:.2s;
+}
+
+.filter-btn:hover{background:rgba(255,255,255,0.08);}
+
+.filter-btn.active{
+background:#7c3aed;
+border-color:#7c3aed;
+color:white;
+}
+
+/* ================= TASK LIST ================= */
+
+#taskList{
+list-style:none;
+max-height:240px;
+overflow-y:auto;
+padding-right:5px;
+}
+
+#taskList::-webkit-scrollbar{width:6px;}
+
+#taskList::-webkit-scrollbar-thumb{
+background:#7c3aed;
+border-radius:10px;
+}
+
+/* ================= TASK CARD ================= */
+
+.task{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px;
+border-radius:14px;
+background:rgba(255,255,255,0.05);
+margin-bottom:14px;
+transition:.2s;
+}
+
+.task:hover{background:rgba(255,255,255,0.08);}
+
+.task.pending{border-left:4px solid #7c3aed;}
+.completed{border-left:4px solid #22c55e;opacity:.6;}
+
+.task-left{display:flex;gap:12px;align-items:center;}
+.task-info{display:flex;flex-direction:column;gap:4px;}
+
+.category-badge{
+font-size:11px;
+padding:2px 8px;
+border-radius:6px;
+background:rgba(255,255,255,0.1);
+color:#cbd5e1;
+}
+
+/* ================= DEADLINE ================= */
+
+.deadline{font-size:12px;color:#94a3b8;}
+.deadline-warning{color:#f59e0b;}
+.deadline-expired{color:#ef4444;}
+
+/* ================= DELETE ================= */
+
+.delete-btn{
+background:rgba(239,68,68,0.15);
+color:#f87171;
+border:none;
+padding:6px 10px;
+border-radius:8px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-section{margin-top:10px;}
+
+.progress-bar{
+height:8px;
+background:rgba(255,255,255,0.08);
+border-radius:20px;
+margin-top:15px;
+}
+
+#progressFill{
+height:100%;
+width:0%;
+background:#7c3aed;
+border-radius:20px;
+transition:.4s;
+}
+
+/* ================= POMODORO ================= */
+
+.pomodoro{
+display:flex;
+justify-content:center;
+align-items:center;
+height:85vh;
+text-align:center;
+}
+
+.pomodoro-container{
+background:rgba(0,0,0,0.45);
+padding:60px;
+border-radius:25px;
+backdrop-filter:blur(15px);
+}
+
+#pomodoroTimer{
+font-size:110px;
+font-weight:600;
+margin:20px 0;
+}
+
+.pomo-tab{
+background:rgba(255,255,255,0.08);
+padding:8px 18px;
+border-radius:20px;
+border:none;
+color:#cbd5e1;
+}
+
+.pomo-tab.active{
+background:#7c3aed;
+color:white;
+}
+
+/* pomodoro task */
+
+.pomo-task-title{font-size:16px;margin-bottom:10px;color:#cbd5e1;}
+
+.pomo-task-input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+background:rgba(255,255,255,0.08);
+color:white;
+margin-bottom:20px;
+outline:none;
+}
+
+.pomodoro-controls{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:20px;
+}
+
+.pomodoro-controls button{
+padding:10px 18px;
+border-radius:10px;
+border:none;
+background:#7c3aed;
+color:white;
+cursor:pointer;
+}
+
+.pomodoro-controls button:hover{background:#6d28d9;}
+
+/* ================= THEMES ================= */
+
+.dark{
+background:
+radial-gradient(circle at 20% 20%,#334155 0%,transparent 40%),
+radial-gradient(circle at 80% 80%,#1e293b 0%,transparent 40%),
+linear-gradient(135deg,#020617,#020617);
+}
+
+.light{
+color:#0f172a;
+background:
+radial-gradient(circle at 20% 20%,#f1f5f9 0%,transparent 40%),
+radial-gradient(circle at 80% 80%,#e2e8f0 0%,transparent 40%),
+linear-gradient(135deg,#fff,#f1f5f9);
+}
+
+.light .quote-card,
+.light .task-input-card,
+.light .task-section,
+.light .progress-section{
+background:white;
+border:1px solid #e2e8f0;
+box-shadow:0 4px 20px rgba(0,0,0,.04);
+}
+
+.light input,
+.light select{
+background:#f1f5f9;
+color:#0f172a;
+border:1px solid #e2e8f0;
+}
+
+.light .task{background:#f8fafc;}
+.light .task:hover{background:#f1f5f9;}
+
+.light .task.pending{border-left:4px solid #6366f1;}
+.light .completed{border-left:4px solid #22c55e;}
+
+.light .header{
+background:rgba(255,255,255,.9);
+border-bottom:1px solid #e2e8f0;
+}
+
+.light .logo{color:#0f172a;}
+.light .nav-btn{color:#475569;}
+.light .nav-btn:hover{color:#0f172a;}
+
+.light .progress-bar{background:#e2e8f0;}
+
+.light #progressFill{
+background:linear-gradient(90deg,#6366f1,#7c3aed);
+}
+
+.light .filter-btn{
+background:#f1f5f9;
+color:#475569;
+border:1px solid #e2e8f0;
+}
+
+.light .filter-btn.active{
+background:#7c3aed;
+color:white;
+border:none;
+}
+
+.light .delete-btn{
+background:#fee2e2;
+color:#b91c1c;
+}
+
+/* ================= PRIORITY ================= */
+
+.priority-badge{
+font-size:11px;
+padding:2px 8px;
+border-radius:6px;
+width:fit-content;
+margin-top:2px;
+}
+
+.priority-high{background:#fee2e2;color:#b91c1c;}
+.priority-medium{background:#fef3c7;color:#92400e;}
+.priority-low{background:#dcfce7;color:#166534;}
+
+/* ================= SELECT FIX ================= */
+
+.task-input-grid select option{
+background:#1e293b;
+color:#e2e8f0;
+}
+
+.light .task-input-grid select option{
+background:#fff;
+color:#0f172a;
+}
+
+.task-input-grid select option:checked{
+background:#7c3aed;
+color:#fff;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+.dashboard{grid-template-columns:1fr;gap:40px;}
+.header{padding:18px 30px;}
+nav{gap:20px;}
+
+}
+
+@media(max-width:600px){
+
+.header-content{flex-direction:column;gap:15px;}
+nav{margin:0;}
+.dashboard{margin:40px auto;padding:0 20px;}
+
+}
+
+.hidden{display:none;}
