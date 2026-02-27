@@ -122,35 +122,34 @@ This project is built using:
 ---
 
 # Project Structure
+
+```
 productivity-dashboard
 │
 ├── css
-│ └── style.css
+│   └── style.css
 │
 ├── js
-│ ├── app.js
-│ ├── taskManager.js
-│ ├── storage.js
-│ ├── filter.js
-│ ├── progress.js
-│ ├── deadline.js
-│ ├── theme.js
-│ ├── quote.js
-│ └── pomodoro.js
+│   ├── app.js
+│   ├── taskManager.js
+│   ├── storage.js
+│   ├── filter.js
+│   ├── progress.js
+│   ├── deadline.js
+│   ├── theme.js
+│   ├── quote.js
+│   └── pomodoro.js
 │
 ├── screenshots
-│ ├── dashboard-dark.png
-│ ├── dashboard-light.png
-│ ├── add-task.png
-│ ├── task-filter.png
-│ └── pomodoro.png
+│   ├── dashboard-dark.png
+│   ├── dashboard-light.png
+│   ├── add-task.png
+│   ├── task-filter.png
+│   └── pomodoro.png
 │
 ├── index.html
 └── README.md
-
-
----
-
+```
 # Screenshots
 
 ## Dashboard (Dark Mode)
